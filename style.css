@@ -1,0 +1,1122 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Lobster+Two&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+@font-face {
+	font-family: "Angry Birds";
+	src: url("angrybirds.ttf");
+}
+
+@font-face {
+	font-family: Digital;
+	src: url("digital.ttf");
+}
+
+:root {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--is-bgcolor: #60B656 !important; /* it overrides library is.css */
+}
+
+/* Default settings */
+
+body {
+	/* After loaded, it'll change */
+	overflow: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* Anchor */
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: inherit;
+}
+
+a[data-animated],
+a[data-animated]:hover,
+a[data-animated]:active {
+	position: relative;
+	text-decoration: none;
+}
+
+a[data-animated]:before,
+#is-types li:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 1px;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	visibility: hidden;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+a[data-animated]:hover:before,
+#is-types li:hover:before {
+	visibility: visible;
+	width: 100%;
+}
+
+/* disable dragging and copying images */
+
+img {
+	user-select: none;
+	touch-action: none;
+}
+
+/* The flip card container – set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
+.flip-card {
+	background: transparent;
+	width: 140px;
+	height: 140px;
+	border: 1px solid #f1f1f1;
+	perspective: 1000px;
+	/* Remove this if you don't want the 3D effect */
+}
+
+.flip-card li {
+	font-size: 12px;
+}
+
+/* This container is needed to position the front and back side */
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	/* Safari */
+	backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-front {
+	background: #BBB;
+	color: #000;
+}
+
+/* Style the back side */
+
+.flip-card-back {
+	background: #60B656;
+	color: #FFF;
+	transform: rotateY(180deg);
+}
+
+/* Style the body */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+/* Header#logo Title */
+
+header {
+	padding: 10%;
+	height: calc(100vh - 50px);
+	text-align: center;
+	background: #60B656 url(background.png) center;
+	background-size: cover;
+	color: #FFF;
+}
+
+/* Increase the font size of the heading */
+
+header h1 {
+	margin-top: calc(50vh - 140px);
+	font-size: 40px;
+}
+/* And disable page destroying
+on some mobile browsers */
+section, section * {
+	max-width: calc(100vw - 60px);
+}
+
+/* Style the top navigation bar */
+
+nav {
+	background-color: #333;
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	overflow: hidden;
+	color: white;
+	padding: 10px;
+    padding-bottom: calc(5px + 0.5em);
+    padding-top: 5px;
+}
+
+nav>a {
+	padding: 16px;
+}
+
+/* Logo */
+nav>#logo {
+	display: inline-block;
+}
+
+nav>#logo>a {
+	font-family: "Lobster Two", cursive;
+	text-decoration: none !important;
+}
+
+nav>#logo>img {
+	height: 24px;
+	width: 24px;
+	transform: translateY(6px);
+}
+
+/* Change color on hover */
+nav a:not(.fa-bars):not([href="#home"]):hover,
+nav a:not(.fa-bars):not([href="#home"]):active {
+	background-color: #DDD;
+	color: #000;
+	text-decoration: none;
+}
+
+nav>#logo:hover * {
+	filter: brightness(1.2);
+}
+
+/* Column container */
+
+.content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+
+aside {
+	background-color: #F1F1F1;
+	-ms-flex: 25%;
+	/* IE10 */
+	flex: 25%;
+	background-color: #f1f1f1;
+	padding: 20px;
+	overflow: auto;
+	position: sticky;
+	height: calc(100vh - 50px);
+	top: 50px;
+}
+
+/* Main column */
+
+main {
+	background-color: #FFF;
+	padding: 20px;
+	flex: 75%;
+	-ms-flex: 75%;
+}
+
+pre[class*="language-"] {
+	max-width: calc(75vw - 3em - 50px);
+}
+
+.angry-bird {
+	font-family: "Angry Birds";
+}
+
+/* Certificates */
+
+.certificate {
+	width: calc(75vw - 50px) !important;
+	margin-right: -25px;
+}
+
+#certificates h2 {
+	margin: 0;
+}
+
+#certificates hr {
+	border: dark#00F 1px dashed;
+	margin: 0;
+	margin-top: 1.67em;
+}
+
+#certificates h5 {
+	font-weight: 550;
+	margin: 0;
+	margin-top: 1.67em;
+}
+
+#certificates .useless:after {
+	content: "(I do not use that language)";
+	display: inline-block;
+	float: right;
+	margin-right: 10%;
+	text-decoration: none;
+}
+
+#certificates a:hover {
+	text-decoration: none;
+}
+
+/* Footer */
+
+footer {
+	padding: 20px;
+	padding-top: 0;
+	text-align: center;
+	background: #DDD;
+}
+
+footer>ul {
+	list-style-type: none;
+	display: inline;
+}
+
+footer>ul>li {
+	margin: 5px 0;
+}
+
+footer>ul>li>a:hover {
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+/* Navigation */
+section[id]:not(.active) {
+	display: none;
+}
+
+nav a.fa-bars {
+	float: right;
+	display: none;
+	color: #FFF;
+	padding: 14px 20px;
+}
+
+nav a.fa-bars:hover, nav a.fa-bars:active {
+	text-decoration: none;
+}
+
+/* The side navigation menu */
+
+side-nav {
+	height: 100%;
+	/* 100% Full-height */
+	width: 0;
+	/* 0 width - change this with JavaScript */
+	position: fixed;
+	/* Stay in place */
+	z-index: 102;
+	/* Stay on top */
+	top: 0;
+	/* Stay at the top */
+	right: 0;
+	background-color: #333;
+	/* Black*/
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding-top: 60px;
+	/* Place content 60px from the top */
+	transition: 0.5s;
+	/* 0.5 second transition effect to slide in theside-nav */
+}
+
+/* The navigation menu links */
+
+side-nav a, side-nav a:visited {
+	text-decoration: none;
+	font-size: 25px;
+	display: block;
+	transition: 0.3s;
+	border-top: 1px solid #EEE;
+	color: #EEE;
+	display: flex;
+	padding: 10px;
+}
+
+side-nav i {
+	padding-right: 10px;
+}
+
+side-nav a:first-of-type {
+	padding-right: 0;
+	margin-top: 0;
+	border: none;
+}
+
+side-nav a:last-of-type {
+	border-bottom: 1px solid #EEE;
+}
+
+side-nav a:hover, side-nav a:active {
+	text-decoration: none;
+	color: #FFF;
+}
+
+/* Position and style the close button (top right corner) */
+
+side-nav .fa-times-circle {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+@media screen and (max-width: 679px) {
+	header {
+		height: 50vh;
+	}
+	header h1 {
+		margin-top: calc(25vh - 80px);
+	}
+	nav {
+		padding: 0;
+		padding-left: 10px;
+	}
+	nav a {
+		display: none;
+	}
+	nav a.fa-bars {
+		display: inline;
+	}
+}
+
+@media screen and (max-width: 735px) {
+	aside {
+		display: none;
+	}
+	main {
+		margin: 0;
+	}
+	pre[class*="language-"] {
+		max-width: calc(100vw - 3em - 50px);
+	}
+	.rails {
+		width: calc(125% - 20px) !important;
+	}
+	section, section * {
+		max-width: calc(100vw - 60px);
+	}
+}
+
+/* Calculator */
+
+#calculator {
+	background: #60B656;
+	border-collapse: separate;
+	border-radius: 10px;
+}
+
+#calculator td, #calculator {
+	border: 1px solid;
+	font-size: 50px
+}
+
+#calculator th {
+	font-family: "Lobster Two", cursive;
+	font-size: 50%;
+	text-align: center;
+}
+
+#calculator td {
+	background: radial-gradient(#EEE 60%, #FFF 50%);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px black;
+}
+
+/*input*/
+
+#calculator td[contenteditable] {
+	cursor: text;
+	background: #999;
+	font-family: "Digital";
+	height: 50px;
+	font-size: 100%;
+}
+
+/* Trains */
+
+#trains * {
+	padding: 0;
+}
+
+#trains {
+	position: absolute;
+	width: calc(75vw - 40px);
+	overflow-x: hidden;
+	padding-top: 100px;
+}
+
+#trains+h3 {
+	margin-top: 380px;
+}
+
+.train:nth-of-type(2) {
+	transform: translate(-102%, -100%);
+}
+
+.train:nth-of-type(3) {
+	transform: translate(102%, -200%);
+}
+
+#trains, .rails, .rails:before {
+	max-width: calc(100vw - 60px) !important;
+}
+
+.train {
+	appearance: none;
+	/*disable button look*/
+	width: 800px;
+	height: 150px;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 0 0 5px 5px;
+	animation: train 10s infinite linear;
+	-webkit-animation: train 10s infinite linear;
+}
+
+.train:focus {
+	outline: none;
+}
+
+.train:before {
+	pointer-events: none;
+	/*disable select color*/
+	content: "";
+	position: absolute;
+	margin: auto;
+	width: 810px;
+	height: 80px;
+	top: -80px;
+	left: -5px;
+	background: #999;
+	border-radius: 4% 4% 0 0 / 100% 100% 0 0;
+	box-shadow: inset 0 4px 0 0 #B3B3B3;
+}
+
+.train:after {
+	content: "";
+	position: absolute;
+	margin: auto;
+	width: 60px;
+	height: 140px;
+	bottom: 0;
+	right: 20px;
+	background: #FFFFF5;
+	border-radius: 5px 5px 0 0;
+	z-index: 1;
+}
+
+.train ul {
+	list-style: none;
+	width: 718px;
+	height: 80px;
+	box-shadow: 0 20px 0 0 #FFF;
+	padding-top: 10px;
+}
+
+#trains button:hover {
+	filter: none;
+}
+
+.train ul:before {
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 60px;
+	background: #094682;
+	right: 30px;
+	top: 20px;
+	z-index: 5;
+	border-radius: 5px;
+	box-shadow: 0 0 0 1px #4D4D4D, inset 0 2px 0 0 #062C52, inset 0 -1px 0 0 #062C52;
+}
+
+.train ul:after {
+	content: "";
+	position: absolute;
+	margin: auto;
+	bottom: -20px;
+	left: 0;
+	right: 0;
+	width: 780px;
+	height: 20px;
+	background: #000;
+	border-radius: 0 0 10px 10px;
+}
+
+.train ul li {
+	width: 120px;
+	height: 62px;
+	display: inline-block;
+	background: #094682;
+	margin-left: 40px;
+	border-radius: 10px;
+	border: 4px solid #999999;
+	position: relative;
+	box-shadow: inset 0 2px 0 0 #062c52;
+	overflow: hidden;
+}
+
+.train ul li:hover:after {
+	height: 36px;
+}
+
+.train ul li:before {
+	content: "";
+	position: absolute;
+	margin: auto;
+	top: 20px;
+	bottom: 0;
+	left: 0;
+	background: #999999;
+	width: 100%;
+	height: 4px;
+	box-shadow: 0 2px 0 0 #062c52;
+}
+
+.train ul li:after {
+	content: "";
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 0px;
+	background: #333;
+	box-shadow: 0 2px 0 0 #062c52;
+	transition: All .25s ease;
+	-webkit-transition: All .25s ease;
+	-moz-transition: All .25s ease;
+	-o-transition: All .25s ease;
+}
+
+.train .wheels {
+	width: 60px;
+	height: 60px;
+	background: #000;
+	position: absolute;
+	bottom: -60px;
+	left: 40px;
+	border-radius: 50%;
+	box-shadow: 80px 0 0 0 #000, 480px 0 0 0 #000, 560px 0 0 0 #000, 640px 0 0 0 #000;
+}
+
+.train .wheels:before {
+	content: "";
+	position: absolute;
+	margin: auto;
+	left: 30px;
+	bottom: 0;
+	top: 0;
+	width: 80px;
+	height: 10px;
+	background: #000;
+	box-shadow: 480px 0 0 0 #000, 560px 0 0 0 #000;
+}
+
+.train .wheels:after {
+	content: "";
+	position: absolute;
+	margin: auto;
+	right: 80px;
+	top: 0;
+	width: 60px;
+	height: 10px;
+	background: #000;
+}
+
+.rails {
+	width: 100%;
+	height: 8px;
+	background: #999999;
+	margin-top: -239.5px;
+	position: absolute;
+}
+
+.rails:before {
+	content: "";
+	position: absolute;
+	margin: auto;
+	left: 17.5px;
+	bottom: -12px;
+	height: 15px;
+	width: 20px;
+	background: #630;
+	box-shadow: 50px 0 0 0 #630, 100px 0 0 0 #630, 150px 0 0 0 #630, 200px 0 0 0 #630, 250px 0 0 0 #630, 300px 0 0 0 #630, 350px 0 0 0 #630, 400px 0 0 0 #630, 450px 0 0 0 #630, 500px 0 0 0 #630, 550px 0 0 0 #630, 600px 0 0 0 #630, 650px 0 0 0 #630, 700px 0 0 0 #630, 750px 0 0 0 #630, 800px 0 0 0 #630, 850px 0 0 0 #630, 900px 0 0 0 #630, 950px 0 0 0 #630, 1000px 0 0 0 #630, 1050px 0 0 0 #630, 1100px 0 0 0 #630, 1150px 0 0 0 #630, 1200px 0 0 0 #630, 1250px 0 0 0 #630, 1300px 0 0 0 #630, 1350px 0 0 0 #630, 1400px 0 0 0 #630, 1450px 0 0 0 #630, 1500px 0 0 0 #630, 1550px 0 0 0 #630, 1600px 0 0 0 #630, 1650px 0 0 0 #630, 1700px 0 0 0 #630, 1750px 0 0 0 #630, 1800px 0 0 0 #630, 1850px 0 0 0 #630, 1900px 0 0 0 #630, 1950px 0 0 0 #630, 2000px 0 0 0 #630, 2050px 0 0 0 #630, 2100px 0 0 0 #630, 2150px 0 0 0 #630, 2200px 0 0 0 #630, 2250px 0 0 0 #630, 2300px 0 0 0 #630, 2350px 0 0 0 #630, 2400px 0 0 0 #630, 2450px 0 0 0 #630, 2500px 0 0 0 #630, 2550px 0 0 0 #630;
+}
+
+@keyframes train {
+	from {
+		left: 200vw;
+	}
+	to {
+		left: -200vw;
+	}
+}
+
+/* Czech & European flag */
+
+.flag {
+	position: relative;
+	display: inline-block;
+	margin: 5px 5px 120px;
+	font-size: 12px;
+	width: 180px;
+	height: 120px;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: center;
+	box-shadow: 2px 5px 14px 0px rgba(0, 0, 0, 0.4);
+	backface-visibility: hidden;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+	transform-origin: 0 250px;
+	transform: translate3d(0, 0, 0) rotateY(0deg);
+	animation: 4.5s wave linear infinite;
+}
+
+.flag.cz {
+	background: linear-gradient(146deg, #00F 25%, transparent 0) 0 -60px, linear-gradient(34deg, #00F 25%, transparent 0) 0 -60px, linear-gradient(180deg, #FFF 50%, #F00 0);
+}
+
+.flag.uk {
+	background: linear-gradient(90deg, transparent 46%, #F00 46%, #F00 56%, transparent 56%), linear-gradient(transparent 38%, #FFF 38%, #FFF 42%, #F00 42%, #F00 58%, #FFF 58%, #FFF 62%, transparent 62%), linear-gradient(90deg, transparent 44%, #FFF 44%, #FFF 46%, #F00 46%, #F00 56%, #FFF 56%, #FFF 58%, transparent 58%), linear-gradient(33deg, transparent 45%, #FFF 45%, #FFF 48%, #F00 48%, #F00 54%, #FFF 54%, #FFF 57%, transparent 57%), linear-gradient(-33deg, #00F 45%, #FFF 45%, #FFF 48%, #F00 48%, #F00 54%, #FFF 54%, #FFF 57%, #00F 57%);
+}
+
+.flag.eu {
+	background: #00F;
+}
+
+.flag>svg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+.flag:nth-child(odd) {
+	animation-delay: calc(var(odd) * 1s);
+}
+
+.flag:before {
+	position: absolute;
+	content: "";
+	height: 240px;
+	left: -5px;
+	top: -3px;
+	width: 6px;
+	border-right: 1px solid #FFF;
+	border-radius: 3px;
+	/* Old browsers */
+	background: -moz-linear-gradient(left, #666666 0%, #ededed 50%, #666666 100%);
+	/* FF3.6-15 */
+	background: linear-gradient(left, #666666 0%, #ededed 50%, #666666 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #666666 0%, #ededed 50%, #666666 100%);
+}
+
+@keyframes wave {
+	0% {
+		box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+		transform: translate3d(0, 0, 0) rotateY(10deg);
+	}
+	20% {
+		box-shadow: 4px 5px 15px 0 rgba(0, 0, 0, 0.1);
+		transform: translate3d(0, 0, 0) rotateY(0deg);
+	}
+	40% {
+		box-shadow: 4px 5px 20px 0 rgba(0, 0, 0, 0.4);
+		transform: translate3d(0, 0, 0) rotateY(-15deg);
+	}
+	60% {
+		box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+		transform: translate3d(0, 0, 0) rotateY(0deg);
+	}
+	80% {
+		box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.3);
+		transform: translate3d(0, 0, 0) rotateY(17deg);
+	}
+	100% {
+		box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+		transform: translate3d(0, 0, 0) rotateY(10deg);
+	}
+}
+
+/* Loaders */
+
+before-load {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #DDD;
+	width: 100%;
+	height: 100%;
+	z-index: 1059;
+	color: #FFF;
+	font-family: cursive;
+}
+
+#loader {
+	z-index: 1000000;
+	content: "";
+	font-size: 90px;
+	text-indent: -9999em;
+	overflow: hidden;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	margin: 72px auto;
+	position: relative;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	animation: load 2s infinite ease, round 2s infinite ease;
+}
+
+@keyframes load {
+	from {
+		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+	}
+	5%, 95% {
+		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+	}
+	10%, 59% {
+		box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+	}
+	20% {
+		box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+	}
+	38% {
+		box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+	}
+	100% {
+		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+	}
+}
+
+@keyframes round {
+	from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+#progress {
+	width: 50vw;
+	background-color: grey;
+	border: 1px solid #AAA;
+	left: 25vw;
+	position: relative;
+}
+
+#bar {
+	width: 0%;
+	height: 30px;
+	text-align: right;
+	background: linear-gradient(green, #60B656);
+}
+
+/* Remove margins and padding from the list */
+
+ul#to-do-list {
+	margin: 0;
+	padding: 0;
+}
+
+/* Style the list items */
+
+ul#to-do-list li {
+	cursor: pointer;
+	position: relative;
+	padding: 12px 8px 12px 40px;
+	list-style-type: none;
+	background: #eee;
+	font-size: 18px;
+	transition: 0.2s;
+	/* make the list items unselectable */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+
+ul#to-do-list li:nth-child(odd) {
+	background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+
+ul#to-do-list li:hover {
+	background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+
+ul#to-do-list li.checked {
+	background: #888;
+	color: #FFF;
+	text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+
+ul#to-do-list li.checked:before {
+	content: "";
+	position: absolute;
+	border-color: #FFF;
+	border-style: solid;
+	border-width: 0 2px 2px 0;
+	top: 10px;
+	left: 16px;
+	transform: rotate(45deg);
+	height: 15px;
+	width: 7px;
+}
+
+li.dragged {
+	z-index: 100000 !important;
+	cursor: move !important;
+}
+
+/* Style the close button */
+
+.fa-trash-alt {
+	font-family: "Font Awesome 5 Free";
+	content: "\f1f8";
+	position: absolute;
+	pointer-events: all;
+	right: 0;
+	top: 0;
+	padding: 12px 16px 12px 16px;
+	cursor: pointer;
+}
+
+/* Style the header */
+
+.header {
+	background-color: #60B656;
+	padding: 30px 40px;
+	color: white;
+	text-align: center;
+	position: relative;
+}
+
+.header>i {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+/* Clear floats after the header */
+
+.header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Style the input */
+
+.header>input {
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	width: 75%;
+	padding: 10px;
+	float: left;
+	font-size: 16px;
+}
+
+/* Style the "Add" button */
+
+.header>span {
+	padding: 10px;
+	width: 25%;
+	background: #d9d9d9;
+	color: #555;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s;
+	border-radius: 0;
+}
+
+.header>span:hover {
+	background-color: #bbb;
+}
+
+/*Github corner (not my but I don't know the author)*/
+
+.octo-arm {
+	transform-origin: 130px 106px;
+}
+
+.corner {
+	position: absolute;
+	/*change to fixed */
+	top: 0;
+}
+
+.corner:nth-of-type(1) {
+	right: 0;
+}
+
+.corner:nth-of-type(2) {
+	left: 0;
+}
+
+.corner g {
+	transform: scale(0.07) rotate(-45deg) translate(-400px, 300px);
+}
+
+.corner svg {
+	border: 0;
+	fill: #151513;
+	color: #FFF;
+}
+
+.corner:hover .octo-arm {
+	animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+	0%, 100% {
+		transform: rotate(0);
+	}
+	20%, 60% {
+		transform: rotate(-25deg);
+	}
+	40%, 80% {
+		transform: rotate(10deg);
+	}
+}
+
+table.table {
+	border-collapse: collapse;
+}
+
+table.table td, table.table th {
+	border: 1px solid black;
+}
+
+table.table th {
+	background: #60B656;
+	color: #FFF;
+}
+
+/* Library - InputStyling.css */
+#i {
+	color: #2196F3;
+	display: inline;
+	transform: rotateZ(-90deg) translate(-20px);
+	position: absolute;
+	left: -45px;
+}
+
+#i > input {
+	color: #2196F3;
+	border: 0.5px solid black;
+}
+
+#i > input::placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+#i > input::-webkit-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+#i > input::-moz-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+#i > input::-ms-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+#s {
+	color: #2196F3;
+	font-size: 72px;
+	transform: translate(10px, 12px);
+	position: sticky;
+	left: 0;
+	display: inline-block;
+}
+
+#is-logo {
+	transform: translateX(100%);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+	width: 50%;
+	--is-bgcolor: #2196F3;
+}
+
+#is-types {
+	cursor: pointer;
+}
+
+legend {
+	text-align: center;
+}
+
+fieldset {
+	border: 1px solid black;
+	padding-top: 5px;
+}

@@ -1,0 +1,486 @@
+/*
+ * InputStyling v1.1
+ * author Tomáš Wróbel
+ * the MIT license
+ * it uses strict:
+ * toggle must be checkbox etc.
+ */
+
+/* Global variables */
+:root {
+	--is-bgcolor: #2196F3;
+	--is-unchecked: #CCC;
+	--is-color: #FFF;
+	--is-placeholder-color: #A9A9A9; /*uses -webkit-*/
+	--is-shadow: #888; 
+}
+
+/* Text (password, email, url, tel, number)	*/
+label.is-text input,
+input.is-text,
+textarea.is-text {
+	resize: none;
+	padding: 6px 10px;
+	margin: 4px 0;
+	box-sizing: border-box;
+}
+
+.is-text::-webkit-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+.is-text::-moz-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+.is-text::-ms-placeholder {
+	color: #2196F3;
+	font-size: 12px;
+}
+
+/* The switch - the box around the slider */
+label[data-toggleswitch] {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	width: 60px;
+	height: 34px;
+	top: -5px;
+}
+
+/* Hide default HTML checkbox (if you set visiblity or display, input cannot be checked) */
+label[data-toggleswitch] input[type="checkbox"],
+label[class^="is-"]:not(.is-text) input:not([type="text"]) {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	position: absolute;
+}
+
+/* The slider */
+label[data-toggleswitch] input[type="checkbox"] + span {
+	position: static;
+	cursor: pointer;
+	display: block;
+	width: 60px;
+	height: 30px;
+	background-color: var(--is-unchecked);
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+label[data-toggleswitch] input[type="checkbox"] + span:after {
+	position: relative;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 0;
+	top: 2px;
+	-webkit-transition: .4s;
+	transition: .4s;
+	background-color: var(--is-color);
+	display: block;
+}
+
+label[data-toggleswitch] input[type="checkbox"]:checked + span {
+	background-color: var(--is-bgcolor);
+}
+
+label[data-toggleswitch] input[type="checkbox"] + span {
+	box-shadow: 0 0 1px var(--is-bgcolor);
+}
+
+label[data-toggleswitch] input[type="checkbox"]:checked + span:after {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+label[data-toggleswitch="round"] input[type="checkbox"] + span {
+	border-radius: 34px;
+}
+
+label[data-toggleswitch="round"] input[type="checkbox"] + span:after {
+	border-radius: 50%;
+}
+/* Checkbox & Radio */
+label.is-checkbox,
+label.is-radio {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+label.is-checkbox span,
+label.is-radio span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	border-radius: 20%;
+	background-color: var(--is-unchecked);
+}
+
+label.is-checkbox:focus-within:before,
+label.is-radio:focus-within:before {
+	content: "";
+	top: 0; left: 0;
+	position: absolute;
+	border-radius: 20%;
+	width: 29px; height: 29px;
+	transform: translate(-4px, -4px);
+	border: 2px solid var(--is-bgcolor);
+}
+/* Radio is round */ 
+label.is-radio span,
+label.is-radio:before  {
+	border-radius: 50% !important;
+}
+/* Hover effect on mouse over */
+label.is-checkbox:hover input[type="checkbox"] ~ span,
+label.is-radio:hover input[type="radio"] ~ span,
+input.is-button:hover, label.is-dialog:hover,
+button.is-button:hover {
+	filter: brightness(0.9);
+}
+
+label.is-checkbox input[type="checkbox"]:checked ~ span,
+label.is-radio input[type="radio"]:checked ~ span {
+	background-color: var(--is-bgcolor);
+}
+/* create checkmark */ 
+label.is-checkbox span:after {
+	content: "";
+	position: absolute;
+	display: none;
+	left: 9px;
+	top: 1px;
+	width: 5px;
+	height: 15px;
+	border: solid var(--is-color);
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+label.is-checkbox[data-is-icon="-"] span:after {
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	left: 6px;
+	top: 10px;
+	width: 10px;
+	height: 0;
+}
+
+label.is-checkbox[data-is-icon="x"] span:before {
+	content: " ";
+	display: none;
+	border: none;
+	position: absolute;
+	left: 11px;
+	top: 2px;
+	height: 20px;
+	width: 3px;
+	background-color: var(--is-color);
+	transform: rotate(45deg);
+}
+
+label.is-checkbox[data-is-icon="x"] span:after {
+	content: " ";
+	display: none;
+	border: none;
+	position: absolute;
+	left: 11px;
+	height: 20px;
+	top: 2px;
+	width: 3px;
+	background-color: var(--is-color);
+	transform: rotate(-45deg);
+}
+
+label.is-radio span:after {
+	content: "";
+	position: absolute;
+	display: none;
+	top: 9px;
+	height:8px;
+	left: 9px;
+	width: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* show it on check */
+label.is-checkbox input[type="checkbox"]:checked ~ span:after,
+label.is-checkbox input[type="checkbox"]:checked ~ span:before,
+label.is-radio input[type="radio"]:checked ~ span:after {
+	display: block; /*not default (inline)*/
+}
+
+/*Select*/
+label.is-select select {
+	background: transparent;
+	width: 200px;
+	height: 35px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	color: var(--is-color);
+	background-color: var(--is-bgcolor);
+}
+
+label.is-select {
+	position: relative;
+	width: 180px;
+	height: 35px;
+	overflow: hidden;
+	border-radius: 3px 5px 5px 3px;
+}
+
+label.is-select:after {
+	content: "\25BC";
+	transition: all .4s;
+	color: var(--is-color);
+	display: inline-block;
+	transform: translateX(-21px);
+	padding: 0;
+	margin: 0;
+}
+
+label.is-select select:checked:after {
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+
+label.is-select select {
+	padding-right: 0;
+	vertical-align: middle !important;
+	text-align: left;
+	height: auto;
+	outline-color: var(--is-color);
+	outline-width: 1px;
+	outline-offset: -2px;
+	line-height: 1em;
+}
+
+/* The slider itself */
+input[type="range"][data-slider] {
+	-webkit-appearance: none;	/* Override default CSS styles */
+	appearance: none;
+	height: 25px; /* Specified height */
+	background: var(--is-unchecked); /* Grey background */
+	outline: none; /* Remove outline */
+	filter: alpha(opacity=0.7);
+	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+	transition: opacity .2s;
+}
+
+input[type="range"][data-slider="round"] {
+	border-radius: 5px;
+	height: 15px;
+}
+
+/* Mouse-over effects */
+input[type="range"][data-slider]:hover {
+	opacity: 1; /* Fully shown on mouse-over */
+	filter: alpha(opacity=1);
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+input[type="range"][data-slider]::-webkit-slider-thumb {
+	-webkit-appearance: none; /* Override default look */
+	appearance: none;
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: var(--is-bgcolor); /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+input[type="range"][data-slider]::-moz-range-thumb {
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: var(--is-bgcolor); /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+input[type="range"][data-slider="round"]::-webkit-slider-thumb {
+	border-radius: 50%;
+}
+
+input[type="range"][data-slider="round"]::-moz-slider-thumb {
+	border-radius: 50%;
+}
+
+input.is-button,
+label.is-dialog,
+button.is-button {
+	background-color: var(--is-bgcolor);
+	border: none;
+	color: var(--is-color);
+	padding: 6px 15px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+label.is-dialog {
+	display: inline-flex;
+	width: auto;
+}
+
+/* 
+ * © CodePen Marcus Connor; (MIT License)
+ * source: https://codepen.io/marcusconnor/pen/QJNvMa?editors=1100
+ * easier syntax by Tomáš Wróbel (less classes, variables...)
+ */
+/* Switch starts here */
+label.is-3Dswitch {
+	display: inline-block;
+	position: relative;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--is-shadow);
+	width: 7em;
+	height: 4em;
+	overflow: hidden;
+	border-bottom: 0.5em solid #eee;
+	font-size: 0.75em; /* Sizes the switch */
+	margin: 1em;
+}
+
+label.is-3Dswitch:before {
+	content: "";
+	position: absolute;
+	top: 1em;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--is-shadow);
+	border: 0.5em solid #eee;
+	border-bottom: 0;
+}
+
+label.is-3Dswitch span {
+	cursor: pointer;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 2.5em;
+	width: 3em;
+	transition: 0.2s;
+}
+
+label.is-3Dswitch input + span {
+	height: 2.4em;
+	width: 2.75em;
+	left: 0.85em;
+	bottom: 0.4em;
+	background-color: var(--is-unchecked);
+	transform: rotate(15deg) skewX(15deg);
+}
+
+label.is-3Dswitch input + span + span {
+	right: 0.5em;
+	bottom: 0;
+	/*for changing, you must add style attribute*/
+	background-color: #BD5757;
+	color: #FFF;
+}
+
+label.is-3Dswitch span:before {
+	content: "";
+	position: absolute;
+	width: 0.4em;
+	height: 2.45em;
+	bottom: -0.45em;
+	background-color: var(--is-shadow);
+	transform: skewY(-65deg);
+}
+
+label.is-3Dswitch span:nth-of-type(1):before {
+	left: -0.4em;
+}
+
+label.is-3Dswitch input + span + span:before {
+	right: -0.375em;
+	background-color: transparent !important;
+	transform: skewY(65deg);
+}
+
+label.is-3Dswitch input:checked + span + span:before {
+	right: -0.375em;
+	background-color: var(--is-shadow) !important;
+	transform: skewY(65deg);
+}
+
+label.is-3Dswitch input:checked + span {
+	background-color: var(--is-bgcolor);
+	color: var(--is-color);
+	bottom: 0px;
+	left: 0.5em;
+	height: 2.5em;
+	width: 3em;
+	transform: rotate(0deg) skewX(0deg);
+}
+
+label.is-3Dswitch input:checked + span:before {
+	background-color: transparent !important;
+	width: 3.0833em;
+}
+
+label.is-3Dswitch input:checked + span + span {
+	background-color: #ddd;
+	color: var(--is-shadow);
+	bottom: 0.4em;
+	right: 0.8em;
+	height: 2.4em;
+	width: 2.75em;
+	transform: rotate(-15deg) skewX(-15deg);
+}
+
+label.is-3Dswitch input:checked + span:before,
+label.is-3Dswitch:last-child:before {
+	background-color: var(--is-shadow);
+}
+
+progress.is-progress {
+	appearance: none;
+	-webkit-appearance: none;
+	border-radius: 20%;
+}
+
+progress.is-progress::-webkit-progress-bar {
+	background-color: var(--is-unchecked);
+}
+
+progress.is-progress::-moz-progress-bar {
+	background-color: var(--is-unchecked);
+}
+
+progress.is-progress::-webkit-progress-value {
+	background-color: var(--is-bgcolor);
+}
+
+progress.is-progress:before {
+	content: attr(data-text);
+	color: var(--is-color);
+	position: absolute;
+}
