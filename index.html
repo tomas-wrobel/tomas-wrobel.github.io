@@ -16,14 +16,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="prism.css" />
 	<link rel="stylesheet" type="text/css" href="is.css" />
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.2/jscolor.min.js"></script>
+
+	<!-- CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.2/jscolor.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/typescript" src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="https://johnny.github.io/jquery-sortable/js/jquery-sortable.js"></script>
+	<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+	<!-- Other libraries -->
 	<script type="text/javascript" src="prism.min.js"></script>
 	<script type="text/javascript" src="babel.min.js"></script>
 	<script type="text/typescript" src="graph.ts"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-	<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 
 	<!-- Basic SEO -->
 	<meta name="keywords" lang="en" content="Tomáš Wróbel, programmer, GitHub, certified, young programmer" />
@@ -32,19 +37,19 @@
 	<meta name="google-site-verification" content="y8B_BiqBVzdoR-MlooFl4OQmxObd6gACKOcMhU-clho" />
 
 	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://tomas-wrobel.github.io/">
-	<meta property="og:title" content="Programmer Tomáš Wróbel">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://tomas-wrobel.github.io/" />
+	<meta property="og:title" content="Programmer Tomáš Wróbel" />
 	<meta property="og:description"
-		content="I am a young programmer! I am from the Czech Republic. I live in the 3-rd biggest city, Ostrava. I study in Grammar School of Wichterle – in a classroom with more Maths, ICT and Biology. See my profiles (SoloLearn, Free Code Camp, Github)">
-	<meta property="og:image" content="background.png">
+		content="I am a young programmer! I am from the Czech Republic. I live in the 3-rd biggest city, Ostrava. I study in Grammar School of Wichterle – in a classroom with more Maths, ICT and Biology. See my profiles (SoloLearn, Free Code Camp, Github)" />
+	<meta property="og:image" content="background.png" />
 
 	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://tomas-wrobel.github.io/">
-	<meta property="twitter:title" content="Programmer Tomáš Wróbel">
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://tomas-wrobel.github.io/" />
+	<meta property="twitter:title" content="Programmer Tomáš Wróbel" />
 	<meta property="twitter:description"
-		content="I am a young programmer! I am from the Czech Republic. I live in the 3-rd biggest city, Ostrava. I study in Grammar School of Wichterle – in a classroom with more Maths, ICT and Biology. See my profiles (SoloLearn, Free Code Camp, Github)">
+		content="I am a young programmer! I am from the Czech Republic. I live in the 3-rd biggest city, Ostrava. I study in Grammar School of Wichterle – in a classroom with more Maths, ICT and Biology. See my profiles (SoloLearn, Free Code Camp, Github)" />
 	<meta property="twitter:image" content="background.png">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -58,31 +63,6 @@
 </head>
 
 <body class="line-numbers match-braces">
-	<before-load>
-		<script src="pace.js"></script>
-		<h1 align="center">Loading...</h1>
-		<div id="loader"></div>
-		<p align="center">Page is preparing for you! Certficates, demos and images</p>
-		<div id="progress">
-			<div id="bar">Initializing...</div>
-		</div>
-		<p align="center">
-			<span>This website is personalized for Mozilla Firefox </span>
-			<i class="fab fa-firefox-browser"></i>,
-			<span>Microsoft Edge </span>
-			<i class="fab fa-edge"></i>
-			<span> (I recommend), Google Chrome </span>
-			<i class="fab fa-chrome"></i>
-			<span>or another Chromium</span>
-		</p>
-		<p align="center">
-			<span>Never use old Edge <i class="fab fa-edge-legacy"></i> or Internet Explorer <i
-					class="fab fa-internet-explorer"></i></span><br />
-			<span><i class="fas fa-exclamation-triangle"></i> This rule is not for my website only <i
-					class="fas fa-exclamation-triangle"></i></span>
-		</p>
-	</before-load>
-
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v9.0"
 		nonce="enU36gEb"></script>
@@ -136,6 +116,7 @@
 		<a href="#certificates" class="active"><i class="fas fa-award"></i> Certificates</a>
 		<a href="#contact"><i class="fa fa-id-card"></i> Contact</a>
 		<a class="fas fa-bars"></a>
+		<script type="text/typescript" src="navigation.ts"></script>
 	</nav>
 
 	<div class="content">
@@ -229,7 +210,7 @@
 				<p>After year, I went to primary school for clever children – Primary School Provaznická (can be
 					translated as Rope street). I never got worse mark than B (In Czechia, we use 2 instead) there.</p>
 				<p>When I finished 5<sup>th</sup> grade I went to Grammar School of Wichterle. I had worse marks there
-					but I always pass with distinction. Now, I am in the second grade of that school</p>
+					but I always pass with distinction. Now, I am in the third grade of that school</p>
 				<div class="fb-comments" data-href="https://tomas-wrobel.github.io/#home" data-numposts="5"
 					data-width=""></div>
 			</section>
@@ -238,8 +219,7 @@
 						graphs</button>)</h2>
 				<div></div><!-- For certificates -->
 				<p>I learned very intersting and important things about programming.</p>
-				<script type="text/tsx" src="certificates.tsx"></script>
-				<button class="is-button" id="download"><i class="fa fa-download"></i> Download a certificate</button>
+				<script type="text/tsx" src="certificates.tsx"></script>				
 			</section>
 			<section id="libraries">
 				<h2>Libraries</h2>
@@ -1042,19 +1022,33 @@ svg.eu {
 		</main>
 	</div>
 
-	<footer>
-		<ul translate="no">
-			<li><a href="https://instagram.com/tomislav_vrabec/"><i class="fab fa-instagram-square"></i>
-					@tomislav_vrabec</a></li>
-			<li><a href="https://facebook.com/programmer.tomas.wrobel/"><i class="fab fa-facebook-square"></i>
-					@programmer.tomas.wrobel</a></li>
-			<li><a href="https://github.com/tomas-wrobel/"><i class="fab fa-github-square"></i> @tomas-wrobel</a></li>
-			<li><a href="https://twitter.com/wrobel_tomas/"><i class="fab fa-twitter-square"></i> @wrobel_tomas</a></li>
-			<li><a href="https://codepen.io/tomas-wrobel/"><i class="fab fa-codepen"></i> @tomas-wrobel</a></li>
-			<li><i class="far fa-copyright"></i> Tomáš Wróbel
-				<script>document.write(new Date().getFullYear())</script>
-			</li>
-		</ul>
+	<footer translate="no">
+		<table align="center">
+			<tr>
+				<td>
+					<a href="https://instagram.com/tomislav_vrabec/"><i class="fab fa-instagram-square"></i> @tomislav_vrabec</a>
+				</td>
+				<td>
+					<a href="https://facebook.com/programmer.tomas.wrobel/"><i class="fab fa-facebook-square"></i> @programmer.tomas.wrobel</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="https://github.com/tomas-wrobel/"><i class="fab fa-github-square"></i> @tomas-wrobel</a>
+				</td>
+				<td>
+					<a href="https://twitter.com/wrobel_tomas/"><i class="fab fa-twitter-square"></i> @wrobel_tomas</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="https://codepen.io/tomas-wrobel/"><i class="fab fa-codepen"></i> @tomas-wrobel</a>
+				</td>
+				<td>
+					<i class="far fa-copyright"></i> Tomáš Wróbel <script>document.write(new Date().getFullYear())</script>
+				</td>
+			</tr>
+		</table>
 	</footer>
 
 	<script type="text/javascript">
@@ -1072,7 +1066,6 @@ svg.eu {
 		}
 	</script>
 
-	<script type="text/typescript" src="navigation.ts"></script>
 	<script src="projects.js"></script>
 	<script src="email.js"></script>
 </body>

@@ -5,16 +5,16 @@
  * sticky navbar
  * showing / hiding sections – only index.html
  *//** */
-class Navigation  {
+class Navigation {
 	parameters: Record<string, string>;
 	readonly sidebar: JQuery<HTMLElement>;
 	readonly mainbar: JQuery<HTMLElement>;
-	static params = location.search && Object.fromEntries(location.search.substr(1).split("&").map(data => data.split("=")) as [string, string][]) || {};
+	static params = new URLSearchParams(location.search);
 	open() {
-		this.sidebar.css("width", "250px");
+		this.sidebar.css("width", "12em");
 	}
 	close() {
-		this.sidebar.css("width", "0");
+		this.sidebar.css("width", 0);
 	}
 	constructor(sidebar: string, mainbar: string) {
 		this.sidebar = $(sidebar);
@@ -32,11 +32,12 @@ class Navigation  {
 				this.pageNotFound(location.hash.substring(1));
 			}
 		} else {
-			if ("page_not_found" in Navigation.params) {
-				this.pageNotFound(Navigation.params.page_not_found);
+			if (Navigation.params.has("page_not_found")) {
+				this.pageNotFound(Navigation.params.get("page_not_found"));
+			} else {
+				history.replaceState({}, document.title, "#certificates");
 			}
 		}
-		history.replaceState("#certificates", document.title, window.location.pathname);
 	}
 	initEvents() {
 		const nav = this;
@@ -146,17 +147,14 @@ $(".angry-bird").on("click", function (this: HTMLAnchorElement) {
 			<animate xlink:href="#rightPupile" attributeName="cx" from="221" to="247" dur="4s" values="215; 247; 247; 215; 215" keyTimes="0; 0.20; 0.50; 0.7; 1" repeatCount="indefinite" fill="freeze" />
 			<animate xlink:href="#rightPupileInner" attributeName="cx" from="210" to="253" dur="4s" values="210; 253; 253; 210; 210;" keyTimes="0; 0.20; 0.50; 0.7; 1" repeatCount="indefinite" fill="freeze" />
 		</svg>`,
-		showCancelButton: true
-	}).then(({value}) => {
-		if (value) {
-			window.open(this.href);
-		}
-	});
+		showCancelButton: true,
+		confirmButtonText: "Go to " + this.href,
+		cancelButtonText: "OK"
+	}).then(({ isConfirmed }) => isConfirmed && window.open(this.href));
 	return false;
 });
 
 new Navigation("side-nav", "nav");
 
 // Some browsers want declaration
-customElements.define("side-nav", class HTMLSideNavElement extends HTMLElement {}, {extends: "nav"});
-customElements.define("before-load", class HTMLBeforeLoadElement extends HTMLElement {});
+customElements.define("side-nav", class HTMLSideNavElement extends HTMLElement { }, { extends: "nav" });

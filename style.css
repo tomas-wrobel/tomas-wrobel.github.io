@@ -1,7 +1,7 @@
 /* Fonts */
+
 @import url("https://fonts.googleapis.com/css?family=Lobster+Two&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
-
 @font-face {
 	font-family: "Angry Birds";
 	src: url("angrybirds.ttf");
@@ -14,15 +14,11 @@
 
 :root {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--is-bgcolor: #60B656 !important; /* it overrides library is.css */
+	--is-bgcolor: #60B656 !important;
+	/* it overrides library is.css */
 }
 
 /* Default settings */
-
-body {
-	/* After loaded, it'll change */
-	overflow: hidden;
-}
 
 * {
 	box-sizing: border-box;
@@ -43,15 +39,12 @@ a:visited {
 	color: inherit;
 }
 
-a[data-animated],
-a[data-animated]:hover,
-a[data-animated]:active {
+a[data-animated], a[data-animated]:hover, a[data-animated]:active {
 	position: relative;
 	text-decoration: none;
 }
 
-a[data-animated]:before,
-#is-types li:before {
+a[data-animated]:before, #is-types li:before {
 	content: "";
 	position: absolute;
 	width: 0;
@@ -64,8 +57,7 @@ a[data-animated]:before,
 	transition: all 0.3s ease-in-out 0s;
 }
 
-a[data-animated]:hover:before,
-#is-types li:hover:before {
+a[data-animated]:hover:before, #is-types li:hover:before {
 	visibility: visible;
 	width: 100%;
 }
@@ -146,7 +138,7 @@ body {
 
 header {
 	padding: 10%;
-	height: calc(100vh - 50px);
+	height: calc(100vh - 11px - 2em);
 	text-align: center;
 	background: #60B656 url(background.png) center;
 	background-size: cover;
@@ -159,8 +151,10 @@ header h1 {
 	margin-top: calc(50vh - 140px);
 	font-size: 40px;
 }
+
 /* And disable page destroying
 on some mobile browsers */
+
 section, section * {
 	max-width: calc(100vw - 60px);
 }
@@ -175,15 +169,17 @@ nav {
 	overflow: hidden;
 	color: white;
 	padding: 10px;
-    padding-bottom: calc(5px + 0.5em);
-    padding-top: 5px;
+	padding-bottom: calc(5px + 0.5em);
+	padding-top: 5px;
 }
 
 nav>a {
 	padding: 16px;
+	text-decoration: none !important;
 }
 
 /* Logo */
+
 nav>#logo {
 	display: inline-block;
 }
@@ -200,11 +196,14 @@ nav>#logo>img {
 }
 
 /* Change color on hover */
-nav a:not(.fa-bars):not([href="#home"]):hover,
-nav a:not(.fa-bars):not([href="#home"]):active {
-	background-color: #DDD;
+
+nav a:not(.fa-bars):not(.active):not([href="#home"]):hover, nav a:not(.fa-bars):not([href="#home"]):active {
+	background: #DDD;
 	color: #000;
-	text-decoration: none;
+}
+
+nav>a.active {
+	background: #60B656;
 }
 
 nav>#logo:hover * {
@@ -292,27 +291,22 @@ pre[class*="language-"] {
 /* Footer */
 
 footer {
-	padding: 20px;
-	padding-top: 0;
-	text-align: center;
 	background: #DDD;
+	text-align: center;
 }
 
-footer>ul {
-	list-style-type: none;
-	display: inline;
+footer>table {
+	padding: 10px;
+	border-spacing: 10px;
 }
 
-footer>ul>li {
-	margin: 5px 0;
-}
-
-footer>ul>li>a:hover {
+footer a:hover {
 	text-decoration: none;
 	font-weight: bolder;
 }
 
 /* Navigation */
+
 section[id]:not(.active) {
 	display: none;
 }
@@ -781,86 +775,6 @@ side-nav .fa-times-circle {
 	}
 }
 
-/* Loaders */
-
-before-load {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: #DDD;
-	width: 100%;
-	height: 100%;
-	z-index: 1059;
-	color: #FFF;
-	font-family: cursive;
-}
-
-#loader {
-	z-index: 1000000;
-	content: "";
-	font-size: 90px;
-	text-indent: -9999em;
-	overflow: hidden;
-	width: 1em;
-	height: 1em;
-	border-radius: 50%;
-	margin: 72px auto;
-	position: relative;
-	-webkit-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	transform: translateZ(0);
-	animation: load 2s infinite ease, round 2s infinite ease;
-}
-
-@keyframes load {
-	from {
-		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-	}
-	5%, 95% {
-		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-	}
-	10%, 59% {
-		box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-	}
-	20% {
-		box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-	}
-	38% {
-		box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-	}
-	100% {
-		box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-	}
-}
-
-@keyframes round {
-	from {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-
-#progress {
-	width: 50vw;
-	background-color: grey;
-	border: 1px solid #AAA;
-	left: 25vw;
-	position: relative;
-}
-
-#bar {
-	width: 0%;
-	height: 30px;
-	text-align: right;
-	background: linear-gradient(green, #60B656);
-}
-
 /* Remove margins and padding from the list */
 
 ul#to-do-list {
@@ -1053,6 +967,7 @@ table.table th {
 }
 
 /* Library - InputStyling.css */
+
 #i {
 	color: #2196F3;
 	display: inline;
@@ -1061,27 +976,27 @@ table.table th {
 	left: -45px;
 }
 
-#i > input {
+#i>input {
 	color: #2196F3;
 	border: 0.5px solid black;
 }
 
-#i > input::placeholder {
+#i>input::placeholder {
 	color: #2196F3;
 	font-size: 12px;
 }
 
-#i > input::-webkit-placeholder {
+#i>input::-webkit-placeholder {
 	color: #2196F3;
 	font-size: 12px;
 }
 
-#i > input::-moz-placeholder {
+#i>input::-moz-placeholder {
 	color: #2196F3;
 	font-size: 12px;
 }
 
-#i > input::-ms-placeholder {
+#i>input::-ms-placeholder {
 	color: #2196F3;
 	font-size: 12px;
 }
