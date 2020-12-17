@@ -196,12 +196,10 @@ var Currency = {
 			if (result.value) {
 				Swal.fire("Success", `${result.value[2]} ${result.value[0]} is ${this.convert(...result.value)} ${result.value[1]}`, "success");
 			}
-		}).catch(error => {
+		}).catch(footer => {
 			Swal.fire({
-				title: "Error", 
 				text: "Request wasn't succesfull", 
-				icon: "error",
-				footer: error
+				icon: "error", footer, title: "Error"
 			});
 		});
 	}

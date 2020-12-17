@@ -14,7 +14,7 @@
 
 :root {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--is-bgcolor: #60B656 !important;
+	--is-bgcolor: #78AB3B !important;
 	/* it overrides library is.css */
 }
 
@@ -44,7 +44,7 @@ a[data-animated], a[data-animated]:hover, a[data-animated]:active {
 	text-decoration: none;
 }
 
-a[data-animated]:before, #is-types li:before {
+a[data-animated]:before, ul#is-types li:before {
 	content: "";
 	position: absolute;
 	width: 0;
@@ -57,7 +57,7 @@ a[data-animated]:before, #is-types li:before {
 	transition: all 0.3s ease-in-out 0s;
 }
 
-a[data-animated]:hover:before, #is-types li:hover:before {
+a[data-animated]:hover:before, ul#is-types li:hover:before {
 	visibility: visible;
 	width: 100%;
 }
@@ -122,7 +122,7 @@ img {
 /* Style the back side */
 
 .flip-card-back {
-	background: #60B656;
+	background: #78AB3B;
 	color: #FFF;
 	transform: rotateY(180deg);
 }
@@ -140,7 +140,7 @@ header {
 	padding: 10%;
 	height: calc(100vh - 11px - 2em);
 	text-align: center;
-	background: #60B656 url(background.png) center;
+	background: #78AB3B url(background.png) center;
 	background-size: cover;
 	color: #FFF;
 }
@@ -189,7 +189,7 @@ nav>#logo>a {
 	text-decoration: none !important;
 }
 
-nav>#logo>img {
+nav>div#logo>img {
 	height: 24px;
 	width: 24px;
 	transform: translateY(6px);
@@ -203,7 +203,7 @@ nav a:not(.fa-bars):not(.active):not([href="#home"]):hover, nav a:not(.fa-bars):
 }
 
 nav>a.active {
-	background: #60B656;
+	background: #78AB3B;
 }
 
 nav>#logo:hover * {
@@ -428,7 +428,7 @@ side-nav .fa-times-circle {
 /* Calculator */
 
 #calculator {
-	background: #60B656;
+	background: #78AB3B;
 	border-collapse: separate;
 	border-radius: 10px;
 }
@@ -855,7 +855,7 @@ li.dragged {
 /* Style the header */
 
 .header {
-	background-color: #60B656;
+	background-color: #78AB3B;
 	padding: 30px 40px;
 	color: white;
 	text-align: center;
@@ -962,7 +962,7 @@ table.table td, table.table th {
 }
 
 table.table th {
-	background: #60B656;
+	background: #78AB3B;
 	color: #FFF;
 }
 

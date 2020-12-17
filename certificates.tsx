@@ -165,7 +165,7 @@ class Certificates extends React.Component<{}, Record<string, (Record<string, bo
 					{controls}
 					<button style={{ marginLeft: 8, filter: this.page < this.maxPage ? "" : "brightness(0.5)" }} className="is-button" onClick={() => this.page < this.maxPage && ++this.page}>Next &#10095;</button>
 					<br />
-					<button className="is-button" id="download">
+					<button className="is-button" id="download" onClick={this.download.bind(this)}>
 						<i className="fa fa-download"></i> Download a certificate
 					</button>
 				</div>
@@ -254,7 +254,7 @@ class Certificates extends React.Component<{}, Record<string, (Record<string, bo
 			input: "select",
 			inputOptions,
 			inputPlaceholder: "Select a Certificate",
-			confirmButtonColor: "#60B656",
+			confirmButtonColor: "#78AB3B",
 			confirmButtonText: '<i class="fa fa-download"></i> Download',
 			showCancelButton: true,
 			inputValidator(value) {
